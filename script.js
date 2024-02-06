@@ -20,17 +20,17 @@ function renderProducts() {
     li.innerHTML = `${product.name} - $${product.price} <button class="add-to-cart-btn" data-id="${product.id}" onCLick = addToCart("${product.id}") >Add to Cart</button>`;
     productList.appendChild(li);
   });
-	setData();
+	getData(); 
 }
-
+ 
 // Render cart list
-function renderCart() {
+function renderCart() { 
 	getData();
 }
-
+ 
 // Add item to cart
-function addToCart(productId) {
-	products.forEach((item)=>{
+function addToCart(productId) { 
+	products.forEach((item)=>{ 
 		if(item.id == productId){
 			const li = document.createElement('li');
 		li.innerHTML = `${item.name} - $${item.price} <button onCLick =  removeFromCart(${item.id})>Remove From Cart</button>`;
@@ -40,9 +40,9 @@ function addToCart(productId) {
 	})
 	setData();
 }
-
+  
 // Remove item from cart
-function removeFromCart(productId) {
+function removeFromCart(productId) { 
 		// alert(productId);
 cartList.removeChild(cartList.children[0]);
 	setData();
@@ -52,14 +52,14 @@ cartList.removeChild(cartList.children[0]);
 // Clear cart
 
 function clearCart() {
-	cartList.remove();
+  	cartList.remove(); 
 }
 function setData(){
-	sessionStorage.setItem("data",cartList.innerHTML);
+	localStorage.setItem("data",cartList.innerHTML)
 	
 }
 function getData(){
-	cartList.innerHTML = sessionStorage.getItem("data")
+	 cartList.innerHTML = localStorage.getItem("data");
 }
 // Initial render
 renderProducts();
