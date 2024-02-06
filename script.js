@@ -50,16 +50,16 @@ cartList.removeChild(cartList.children[0]);
 }
 
 // Clear cart
-
-function clearCart() {
-  	cartList.remove(); 
+ 
+function clearCart() { 
+  	cartList.remove();     
 }
 function setData(){
-	localStorage.setItem("data",cartList.innerHTML)
+	sessionStorage.setItem("data", cartList.innerHTML)
 	
 }
 function getData(){
-	 cartList.innerHTML = localStorage.getItem("data");
+	cartList.innerHTML = localStorage.getItem("data");
 }
 // Initial render
 renderProducts();
